@@ -1,41 +1,29 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Matematicas(models.Model):
-    nombre = models.CharField(max_length=100, default="Matemáticas")
-    horas_teoricas = models.IntegerField()
-    horas_practicas = models.IntegerField()
-    horas_totales = models.IntegerField(blank=True, null=True)
-
-    def save(self, *args, **kwargs):
-        self.horas_totales = self.horas_teoricas + self.horas_practicas
-        super().save(*args, **kwargs)
+class AplicacionesMóvilesParaIot(models.Model):
+    nombre_asignatura = models.CharField(max_length=100, default="Aplicaciones Móviles Para Iot")
+    horas_asistidas = models.IntegerField()
+    alumno = models.ForeignKey(User, on_delete=models.CASCADE)
+    fecha_clase = models.DateField()
 
     def __str__(self):
-        return f"{self.nombre} - {self.horas_totales} horas"
+        return f"{self.nombre_asignatura} - {self.alumno.username} - {self.horas_asistidas} horas - {self.fecha_clase}"
 
-class Lenguaje(models.Model):
-    nombre = models.CharField(max_length=100, default="Lenguaje")
-    horas_lectura = models.IntegerField()
-    horas_escritura = models.IntegerField()
-    horas_totales = models.IntegerField(blank=True, null=True)
-
-    def save(self, *args, **kwargs):
-        self.horas_totales = self.horas_lectura + self.horas_escritura
-        super().save(*args, **kwargs)
+class IngenieríaDeSoftware(models.Model):
+    nombre_asignatura = models.CharField(max_length=100, default="Ingeniería De Software")
+    horas_asistidas = models.IntegerField()
+    alumno = models.ForeignKey(User, on_delete=models.CASCADE)
+    fecha_clase = models.DateField()
 
     def __str__(self):
-        return f"{self.nombre} - {self.horas_totales} horas"
+        return f"{self.nombre_asignatura} - {self.alumno.username} - {self.horas_asistidas} horas - {self.fecha_clase}"
 
-class Ciencias(models.Model):
-    nombre = models.CharField(max_length=100, default="Ciencias")
-    horas_laboratorio = models.IntegerField()
-    horas_teoria = models.IntegerField()
-    horas_totales = models.IntegerField(blank=True, null=True)
-
-    def save(self, *args, **kwargs):
-        self.horas_totales = self.horas_laboratorio + self.horas_teoria
-        super().save(*args, **kwargs)
+class ProgramaciónBackEnd(models.Model):
+    nombre_asignatura = models.CharField(max_length=100, default="Programación Back End")
+    horas_asistidas = models.IntegerField()
+    alumno = models.ForeignKey(User, on_delete=models.CASCADE)
+    fecha_clase = models.DateField()
 
     def __str__(self):
-        return f"{self.nombre} - {self.horas_totales} horas"
+        return f"{self.nombre_asignatura} - {self.alumno.username} - {self.horas_asistidas} horas - {self.fecha_clase}"
