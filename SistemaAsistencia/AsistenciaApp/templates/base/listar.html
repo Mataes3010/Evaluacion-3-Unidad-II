@@ -1,0 +1,44 @@
+{% extends 'themes/base.html' %}
+
+{% block title %}Lista de Registros - {{ materia|capfirst }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center my-4">Registros - {{ materia|capfirst }}</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Alumno</th>
+                <th>Horas Asistidas</th>
+                <th>Fecha de la Clase</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ registro.alumno.username }}</td>
+                <td>{{ registro.horas_asistidas }}</td>
+                <td>{{ registro.fecha_clase }}</td>
+                <td>
+                    <a href="{% url 'actualizar_registro' materia registro.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{% url 'eliminar_registro' materia registro.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">No hay registros disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <a href="{% url 'agregar_registro' materia %}" class="btn btn-primary">Agregar Registro</a>
+        <h4>Total de Horas Asistidas: <span class="badge bg-success">{{ suma_horas }}</span></h4>
+    </div>
+</div>
+{% endblock %}

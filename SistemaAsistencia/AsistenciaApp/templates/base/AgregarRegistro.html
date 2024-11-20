@@ -1,0 +1,22 @@
+{% extends 'themes/base.html' %}
+
+{% block title %}Agregar Registro - {{ nombre_asignatura }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Agregar Registro - {{ nombre_asignatura }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="horas_asistidas" class="form-label">Horas Asistidas</label>
+            <input type="number" class="form-control" id="horas_asistidas" name="horas_asistidas" required>
+        </div>
+        <div class="mb-3">
+            <label for="fecha_clase" class="form-label">Fecha de la Clase</label>
+            <input type="date" class="form-control" id="fecha_clase" name="fecha_clase" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{{ cancel_url }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

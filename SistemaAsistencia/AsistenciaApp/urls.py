@@ -2,21 +2,14 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.landing_page, name='landing_page'),
-
-
-#     # Rutas para Aplicaciones Móviles Para IoT
-#     path('aplicaciones/', views.listar_aplicaciones_mobiles, name='listar_aplicaciones'),
-#     path('aplicaciones/agregar/', views.agregar_aplicaciones_mobiles, name='agregar_aplicaciones'),
-#     path('aplicaciones/eliminar/<int:pk>/', views.eliminar_aplicaciones_mobiles, name='eliminar_aplicaciones'),
-
-#     # Rutas para Ingeniería de Software
-#     path('ingenieria/', views.listar_ingenieria_software, name='listar_ingenieria'),
-#     path('ingenieria/agregar/', views.agregar_ingenieria_software, name='agregar_ingenieria'),
-#     path('ingenieria/eliminar/<int:pk>/', views.eliminar_ingenieria_software, name='eliminar_ingenieria'),
-
-#     # Rutas para Programación Back End
-#     path('programacion/', views.listar_programacion_backend, name='listar_programacion'),
-#     path('programacion/agregar/', views.agregar_programacion_backend, name='agregar_programacion'),
-#     path('programacion/eliminar/<int:pk>/', views.eliminar_programacion_backend, name='eliminar_programacion'),
+    # Página principal
+    path('', views.landing_page, name='landing'),
+    # Dashboard
+    path('dashboard/', views.dashboard, name='dashboard'),
+    
+    # Rutas genéricas para listar, agregar, actualizar y eliminar registros
+    path('<str:materia>/listar/', views.listar_registros, name='listar_registros'),
+    path('<str:materia>/agregar/', views.agregar_registro, name='agregar_registro'),
+    path('<str:materia>/actualizar/<int:pk>/', views.actualizar_registro, name='actualizar_registro'),
+    path('<str:materia>/eliminar/<int:pk>/', views.eliminar_registro, name='eliminar_registro'),
 ]

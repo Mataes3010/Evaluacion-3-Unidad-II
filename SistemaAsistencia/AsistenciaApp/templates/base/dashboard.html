@@ -1,0 +1,20 @@
+{% extends 'themes/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h1 class="mb-4">Gestión de Asistencias</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="{% url 'listar_registros' 'aplicaciones' %}" class="btn btn-primary btn-lg w-100 mb-3">Aplicaciones Móviles Para IoT</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'listar_registros' 'ingenieria' %}" class="btn btn-success btn-lg w-100 mb-3">Ingeniería de Software</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'listar_registros' 'programacion' %}" class="btn btn-warning btn-lg w-100 mb-3">Programación Back End</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

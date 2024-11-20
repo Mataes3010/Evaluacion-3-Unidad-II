@@ -1,0 +1,35 @@
+{% extends 'themes/base.html' %}
+
+{% block title %}Programación Back End{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Programación Back End</h1>
+    <a href="{% url 'agregar_programacion' %}" class="btn btn-primary mb-3">Agregar Registro</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Alumno</th>
+                <th>Horas Asistidas</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ registro.alumno.username }}</td>
+                <td>{{ registro.horas_asistidas }}</td>
+                <td>{{ registro.fecha_clase }}</td>
+                <td>
+                    <a href="{% url 'editar_programacion' registro.id %}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'eliminar_programacion' registro.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
