@@ -5,7 +5,7 @@ from .models import AplicacionesMóvilesParaIot, IngenieríaDeSoftware, Programa
 # Landing Page
 def landing_page(request):
     """Página principal accesible sin autenticación"""
-    return render(request, "landing.html")
+    return render(request, "landing_page/landing_page.html")
 
 # Vistas para Aplicaciones Móviles Para IoT
 @login_required
