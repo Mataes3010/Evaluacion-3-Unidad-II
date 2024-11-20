@@ -20,7 +20,7 @@
             {% for registro in registros %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ registro.alumno.username }}</td>
+                <td>{{ registro.alumno.first_name }} {{ registro.alumno.last_name }}</td>
                 <td>{{ registro.horas_asistidas }}</td>
                 <td>{{ registro.fecha_clase }}</td>
                 <td>
