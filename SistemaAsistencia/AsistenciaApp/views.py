@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
-from .models import AplicacionesMóvilesParaIot, IngenieríaDeSoftware, ProgramaciónBackEnd
 from django.db.models import Sum
+from .models import AplicacionesMóvilesParaIot, IngenieríaDeSoftware, ProgramaciónBackEnd
 
 # Landing Page
 def landing_page(request):
@@ -14,7 +14,7 @@ def dashboard(request):
     """Vista principal del sistema después de iniciar sesión"""
     return render(request, "base/dashboard.html")
 
-# Vista genérica para listar registros
+# Listar registros
 @login_required
 def listar_registros(request, materia):
     """Vista para listar registros dinámicamente según la materia"""
@@ -25,7 +25,7 @@ def listar_registros(request, materia):
     }
     
     if materia not in modelos:
-        return render(request, "404.html")  # Puedes personalizar una página 404 si lo deseas
+        return render(request, "404.html")  # Página 404 si la materia no existe
     
     modelo = modelos[materia]
     registros = modelo.objects.all()
@@ -37,14 +37,15 @@ def listar_registros(request, materia):
         'suma_horas': suma_horas
     })
 
-# Vistas genéricas para agregar, actualizar y eliminar
+# Agregar registro
 @login_required
-@permission_required('app.add_aplicacionesmóvilesparaiot', raise_exception=True)
+@permission_required('AsistenciaApp.add_aplicacionesmóvilesparaiot', raise_exception=True)
 def agregar_registro(request, materia):
+    """Vista para agregar un registro en una materia específica"""
     modelos = {
         'aplicaciones': AplicacionesMóvilesParaIot,
         'ingenieria': IngenieríaDeSoftware,
-        'programacion': ProgramaciónBackEnd
+        'programacion': ProgramaciónBackEnd,
     }
     
     if materia not in modelos:
@@ -64,13 +65,15 @@ def agregar_registro(request, materia):
     
     return render(request, "base/AgregarRegistro.html", {'materia': materia})
 
+# Actualizar registro
 @login_required
-@permission_required('app.change_aplicacionesmóvilesparaiot', raise_exception=True)
+@permission_required('AsistenciaApp.change_aplicacionesmóvilesparaiot', raise_exception=True)
 def actualizar_registro(request, materia, pk):
+    """Vista para actualizar un registro en una materia específica"""
     modelos = {
         'aplicaciones': AplicacionesMóvilesParaIot,
         'ingenieria': IngenieríaDeSoftware,
-        'programacion': ProgramaciónBackEnd
+        'programacion': ProgramaciónBackEnd,
     }
     
     if materia not in modelos:
@@ -87,13 +90,15 @@ def actualizar_registro(request, materia, pk):
     
     return render(request, "base/editar.html", {'registro': registro, 'materia': materia})
 
+# Eliminar registro
 @login_required
-@permission_required('app.delete_aplicacionesmóvilesparaiot', raise_exception=True)
+@permission_required('AsistenciaApp.delete_aplicacionesmóvilesparaiot', raise_exception=True)
 def eliminar_registro(request, materia, pk):
+    """Vista para eliminar un registro en una materia específica"""
     modelos = {
         'aplicaciones': AplicacionesMóvilesParaIot,
         'ingenieria': IngenieríaDeSoftware,
-        'programacion': ProgramaciónBackEnd
+        'programacion': ProgramaciónBackEnd,
     }
     
     if materia not in modelos:
