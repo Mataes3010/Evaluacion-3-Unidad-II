@@ -75,11 +75,21 @@ WSGI_APPLICATION = 'SistemaAsistencia.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+  'mysql': {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': '',
+    'USER': 'root',
+    'PASSWORD': '',
+    'HOST': 'localhost',
+    'PORT': '',
+  },
+  'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': BASE_DIR / 'db.sqlite3',
+  },
+ 
 }
+
 
 
 # Password validation
@@ -122,3 +132,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL='/' 
+# Redirección después de cerrar sesión 
+LOGOUT_REDIRECT_URL='/' 
