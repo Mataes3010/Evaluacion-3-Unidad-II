@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('', views.landing_page, name='landing_page'),
+
+
     # Rutas para Aplicaciones Móviles Para IoT
     path('aplicaciones/', views.listar_aplicaciones_mobiles, name='listar_aplicaciones'),
     path('aplicaciones/agregar/', views.agregar_aplicaciones_mobiles, name='agregar_aplicaciones'),
