@@ -4,14 +4,17 @@
 
 {% block content %}
 {% load static %}
-    <section class="text-center bg-white py-5">
-        <div>
-            <div>
-            <h1>Bienvenido al Sistema de Asistencia</h1>
-            <p>Accede para gestionar las asistencias de tus asignaturas.</p>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+    <body style=" background-image:url('{%static 'img/hero-bg.jpg' %}'); background-repeat: no repeat; background-size: 100%; ">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Bienvenido al Sistema de Asistencia</h1>
+                <p>Accede para gestionar las asistencias de tus asignaturas.</p>
             </div>
-            <img src="{% static 'img/banner.jpg' %}" class="img-fluid" alt="Imagen">
         </div>
-    </section>
+    </body>
+
+
 {% endblock %}
 

@@ -1,15 +1,11 @@
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  color: #fff;
+  color: black;
+  margin-bottom: 40px;
 }
 
 .hero {
-  background: no-repeat center center/cover;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,5 +22,8 @@ body {
 
 .hero-content p {
   font-size: 18px;
+  margin-bottom: 750px;
+}
+main{
   margin-bottom: 20px;
 }
