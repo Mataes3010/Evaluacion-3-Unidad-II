@@ -21,5 +21,6 @@
                     Tarea no funcionales	                                                        Estado
 Crear una estructura organizada en carpetas (modelos, vistas, plantillas)	                        Completado  yohan
 Dividir las plantillas HTML (base.html, navbar, footer)	                                            Completado  ignacio
-Crear diseño responsivo básico con Bootstrap	                                                    Completado  michael
+Crear diseño responsivo básico con Bootstrap	                                                    Completado  mchael
 Personalizar las páginas de error (403.html)	                                                    Completado  yohan
+

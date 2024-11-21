@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'SistemaAsistencia.wsgi.application'
 DATABASES = {
   'mysql': {
     'ENGINE': 'django.db.backends.mysql',
-    'NAME': '',
+    'NAME': 'bbd_asistencia',
     'USER': 'root',
     'PASSWORD': '',
     'HOST': 'localhost',
